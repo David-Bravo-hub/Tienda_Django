@@ -1,0 +1,85 @@
+/* Fondo general con la foto mucho más visible y transparente */
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-image: linear-gradient(rgba(255, 240, 245, 0.3), rgba(255, 240, 245, 0.3)), url('fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #4a4a4a;
+    margin: 0;
+    padding: 0;
+}
+
+/* Encabezado con efecto moderno translúcido (Glassmorphism) */
+header {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(8px);
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border-bottom: 1px solid #ffe0ea;
+}
+
+header h1 {
+    color: #b83b5e;
+    font-size: 28px;
+    margin: 0;
+}
+
+/* Menú de navegación moderno */
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: #b83b5e;
+    text-decoration: none;
+    font-weight: 700;
+    margin: 0 15px;
+    padding: 6px 14px;
+    border-radius: 20px;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+
+nav a:hover {
+    background-color: #b83b5e;
+    color: #ffffff;
+}
+
+/* Contenedor de productos */
+.lista-productos {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: wrap;
+    margin: 40px auto;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+.tarjeta-producto {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    width: 240px;
+    border: 1px solid #ffe0ea;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 22px rgba(255, 77, 136, 0.2);
+}
+
+/* Pie de página */
+footer {
+    text-align: center;
+    padding: 25px;
+    color: #777;
+    font-size: 14px;
+    margin-top: 50px;
+    border-top: 1px solid #ffe0ea;
+    background-color: rgba(255, 255, 255, 0.8);
+}

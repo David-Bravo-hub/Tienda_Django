@@ -1,0 +1,54 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tiendita Belén</title>
+    <link rel="stylesheet" href="{% static 'tienda/styles.css' %}">
+</head>
+<body>
+    <header style="background-color: #ffb6c1; padding: 20px; text-align: center;">
+        <!-- Logo redondo y alineado antes del texto -->
+        <h1 style="color: #d14770; margin: 0; display: flex; align-items: center; justify-content: center; gap: 15px; flex-wrap: wrap;">
+            <img src="{% static 'tienda/logo.png' %}" alt="Logo Tiendita Belén" style="width: 60px; height: 60px; border-radius: 50%; object-fit: cover; border: 2px solid #ffffff; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+            Bienvenidos a Tiendita Belén
+        </h1>
+        
+        <p style="margin: 5px 0 15px 0; color: #555;">Tu tienda de confianza</p>
+        
+        <!-- BARRA DE NAVEGACIÓN -->
+        <nav style="word-spacing: 20px;">
+            <a href="{% url 'inicio' %}" style="color: #d14770; text-decoration: none; font-weight: bold;">Inicio</a>
+            <a href="{% url 'nosotros' %}" style="color: #d14770; text-decoration: none; font-weight: bold;">Nosotros</a>
+            <a href="{% url 'contacto' %}" style="color: #d14770; text-decoration: none; font-weight: bold;">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <section style="padding: 30px; text-align: center;">
+            <h2 style="color: #b83b5e;">Productos Destacados</h2>
+            <p style="color: #666;">Explora nuestro catálogo de productos aquí.</p>
+
+            <div class="lista-productos" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
+                {% for p in productos %}
+                    <div class="tarjeta-producto" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); width: 240px; text-align: left;">
+                        
+                        <!-- FOTO REAL DE TUS CUADROS -->
+                        <img src="{% static 'tienda/cuadros.png' %}" alt="Cuadros Tiendita Belén" style="width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; border: 1px solid #ffe0ea;">
+
+                        <h3 style="margin-bottom: 10px;">
+                            <a href="{% url 'detalle_producto' p.id %}" style="color: #ff4d88; text-decoration: none;">{{ p.nombre }}</a>
+                        </h3>
+                        <p style="font-size: 14px; margin-bottom: 10px; color: #555;">{{ p.descripcion }}</p>
+                        <p style="font-weight: bold; color: #2e7d32;">Precio: ${{ p.precio }}</p>
+                        <p style="font-size: 12px; color: #666;">Stock disponible: {{ p.stock }}</p>
+                    </div>
+                {% empty %}
+                    <p>No hay productos disponibles por el momento.</p>
+                {% endfor %}
+            </div>
+        </section>
+    </main>
+</body>
+</html>

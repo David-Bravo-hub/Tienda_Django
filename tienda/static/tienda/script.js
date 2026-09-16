@@ -1,0 +1,1 @@
+console.log("Tiendita Belén cargada correctamente con Django 🚀");

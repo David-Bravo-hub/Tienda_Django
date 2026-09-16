@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Contacto - Tiendita Belén</title>
+    <link rel="stylesheet" href="{% static 'tienda/styles.css' %}">
+</head>
+<body style="font-family: Arial, sans-serif; background-color: #fff0f5; color: #333; margin: 0; padding: 0;">
+    <header style="background-color: #ffb6c1; padding: 20px; text-align: center;">
+        <h1 style="color: #d14770; margin: 0;">Tiendita Belén</h1>
+        <p style="margin-top: 5px;"><a href="{% url 'inicio' %}" style="color: #d14770; text-decoration: none; font-weight: bold;">← Volver al inicio</a></p>
+    </header>
+
+    <main style="padding: 40px; text-align: center;">
+        <div style="background: white; max-width: 600px; margin: 0 auto; padding: 30px; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1);">
+            <h2 style="color: #ff4d88; margin-bottom: 15px;">Ponte en Contacto</h2>
+            <p style="font-size: 16px; line-height: 1.6; color: #555; margin-bottom: 20px;">
+                ¿Tienes alguna duda o quieres encargar un cuadro personalizado? Escríbenos y te responderemos lo antes posible.
+            </p>
+            <a href="#" style="background: #ff4d88; color: white; padding: 12px 25px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block;">Escribir por WhatsApp</a>
+        </div>
+    </main>
+</body>
+</html>

@@ -1,0 +1,36 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ producto.nombre }} - Tiendita Belén</title>
+    <link rel="stylesheet" href="{% static 'tienda/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>Tiendita Belén</h1>
+        <p>Detalle del producto</p>
+        <nav>
+            <a href="{% url 'inicio' %}">Inicio</a>
+            <a href="{% url 'nosotros' %}">Nosotros</a>
+            <a href="{% url 'contacto' %}">Contacto</a>
+        </nav>
+    </header>
+
+    <main>
+        <div style="max-width: 500px; margin: 40px auto; background: white; padding: 35px; border-radius: 16px; box-shadow: 0 6px 20px rgba(0,0,0,0.08); border: 1px solid #ffe0ea; text-align: center;">
+            <h2 style="color: #b83b5e; margin-top: 0; font-size: 26px;">{{ producto.nombre }}</h2>
+            <p style="color: #666; font-size: 16px; line-height: 1.5; margin: 20px 0;">{{ producto.descripcion }}</p>
+            <p style="font-size: 22px; font-weight: 700; color: #2e7d32; margin: 15px 0;">Precio: ${{ producto.precio }}</p>
+            <p style="font-size: 14px; color: #888; margin-bottom: 25px;">Stock disponible: {{ producto.stock }} unidades</p>
+            
+            <a href="{% url 'inicio' %}" style="background: #b83b5e; color: white; padding: 10px 25px; border-radius: 20px; text-decoration: none; font-weight: 700; display: inline-block; transition: background 0.3s;">Volver al catálogo</a>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Tiendita Belén</p>
+    </footer>
+</body>
+</html>
