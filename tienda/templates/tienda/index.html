@@ -22,6 +22,8 @@
             <a href="{% url 'inicio' %}" style="color: #d14770; text-decoration: none; font-weight: bold;">Inicio</a>
             <a href="{% url 'nosotros' %}" style="color: #d14770; text-decoration: none; font-weight: bold;">Nosotros</a>
             <a href="{% url 'contacto' %}" style="color: #d14770; text-decoration: none; font-weight: bold;">Contacto</a>
+            <!-- Botón para Crear Producto (CRUD) -->
+            <a href="{% url 'crear_producto' %}" style="background-color: #d14770; color: white; padding: 5px 10px; border-radius: 5px; text-decoration: none; font-size: 14px;">+ Nuevo Producto</a>
         </nav>
     </header>
 
@@ -32,7 +34,7 @@
 
             <div class="lista-productos" style="display: flex; gap: 20px; justify-content: center; margin-top: 20px; flex-wrap: wrap;">
                 {% for p in productos %}
-                    <div class="tarjeta-producto" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); width: 240px; text-align: left;">
+                    <div class="tarjeta-producto" style="background: white; padding: 20px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.08); width: 240px; text-align: left; position: relative;">
                         
                         <!-- FOTO REAL DE TUS CUADROS -->
                         <img src="{% static 'tienda/cuadros.png' %}" alt="Cuadros Tiendita Belén" style="width: 100%; height: 140px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; border: 1px solid #ffe0ea;">
@@ -42,7 +44,13 @@
                         </h3>
                         <p style="font-size: 14px; margin-bottom: 10px; color: #555;">{{ p.descripcion }}</p>
                         <p style="font-weight: bold; color: #2e7d32;">Precio: ${{ p.precio }}</p>
-                        <p style="font-size: 12px; color: #666;">Stock disponible: {{ p.stock }}</p>
+                        <p style="font-size: 12px; color: #666; margin-bottom: 15px;">Stock disponible: {{ p.stock }}</p>
+
+                        <!-- Botones de Editar y Eliminar del CRUD -->
+                        <div style="display: flex; justify-content: space-between; border-top: 1px solid #eee; padding-top: 10px;">
+                            <a href="{% url 'editar_producto' p.id %}" style="background-color: #4a90e2; color: white; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-size: 12px;">Editar</a>
+                            <a href="{% url 'eliminar_producto' p.id %}" onclick="return confirm('¿Estás seguro de eliminar este producto?');" style="background-color: #d9534f; color: white; padding: 4px 10px; border-radius: 4px; text-decoration: none; font-size: 12px;">Eliminar</a>
+                        </div>
                     </div>
                 {% empty %}
                     <p>No hay productos disponibles por el momento.</p>
