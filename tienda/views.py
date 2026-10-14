@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Producto
 from django.contrib.auth.decorators import login_required
+from rest_framework import viewsets
+from .serializers import ProductoSerializer
 
 def inicio(request):
     # Muestra la lista de todos los productos en la página principal
@@ -57,3 +59,9 @@ def eliminar_producto(request, producto_id):
     producto = get_object_or_404(Producto, pk=producto_id)
     producto.delete()
     return redirect('inicio')
+
+# --- VISTA PARA LA API RESTful (UNIDAD 3) ---
+
+class ProductoViewSet(viewsets.ModelViewSet):
+    queryset = Producto.objects.all()
+    serializer_class = ProductoSerializer
